@@ -1,37 +1,29 @@
-<head>
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/css/bootstrap.min.css" rel="stylesheet">
-</head>
+<style>
+  .navbar-nav {
+    flex-direction: row;
+    gap: 20px;
+  }
 
-<body>
-  <style>
-    .navbar-nav {
-      flex-direction: row;
-      gap: 20px;
-    }
+  .navbar-nav .nav-link {
+    color: white !important;
+  }
 
-    .navbar-nav .nav-link {
-      color: white !important;
-    }
+  .left-group {
+    flex-wrap: nowrap;
+  }
+</style>
 
-    .left-group {
-      flex-wrap: nowrap;
-    }
-  </style>
+<nav class="navbar bg-dark border-bottom" data-bs-theme="dark">
+  <div class="container-fluid d-flex align-items-center justify-content-between">
+    <div class="d-flex align-items-center left-group">
+      <a class="navbar-brand text-white me-3" href="#">Start Bootstrap</a>
 
-  <nav class="navbar bg-dark border-bottom" data-bs-theme="dark">
-    <div class="container-fluid d-flex align-items-center justify-content-between">
-      <div class="d-flex align-items-center left-group">
-        <a class="navbar-brand text-white me-3" href="#">Start Bootstrap</a>
-
-        <ul class="navbar-nav d-flex flex-row mb-0">
-          <li class="nav-item"><a class="nav-link active" href="#">About</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Portfolio</a></li>
-          <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
-        </ul>
-      </div>
+      <ul class="navbar-nav d-flex flex-row mb-0">
+        <li class="nav-item"><a class="nav-link active" href="#">About</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Services</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Portfolio</a></li>
+        <li class="nav-item"><a class="nav-link" href="#">Contact</a></li>
+      </ul>
     </div>
-  </nav>
-
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js"></script>
-</body>
+  </div>
+</nav>

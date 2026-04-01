@@ -28,10 +28,11 @@ NOW WE NEED TO FIX THE NAVBAR TO MAKE IT WORK ON MOBILE WITHOUT JQUERY
 // Navbar and dropdowns
 var toggle = document.getElementsByClassName('navbar-toggle')[0],
     collapse = document.getElementsByClassName('navbar-collapse')[0],
-    dropdowns = document.getElementsByClassName('dropdown');;
+    dropdowns = document.getElementsByClassName('dropdown');
 
 // Toggle if navbar menu is open or closed
 function toggleMenu() {
+    if (!collapse) return;
     collapse.classList.toggle('collapse');
     collapse.classList.toggle('in');
 }
@@ -39,7 +40,10 @@ function toggleMenu() {
 // Close all dropdown menus
 function closeMenus() {
     for (var j = 0; j < dropdowns.length; j++) {
-        dropdowns[j].getElementsByClassName('dropdown-toggle')[0].classList.remove('dropdown-open');
+        var dropdownToggle = dropdowns[j].getElementsByClassName('dropdown-toggle')[0];
+        if (dropdownToggle) {
+            dropdownToggle.classList.remove('dropdown-open');
+        }
         dropdowns[j].classList.remove('open');
     }
 }
@@ -51,7 +55,10 @@ for (var i = 0; i < dropdowns.length; i++) {
             var open = this.classList.contains('open');
             closeMenus();
             if (!open) {
-                this.getElementsByClassName('dropdown-toggle')[0].classList.toggle('dropdown-open');
+                var toggleElement = this.getElementsByClassName('dropdown-toggle')[0];
+                if (toggleElement) {
+                    toggleElement.classList.toggle('dropdown-open');
+                }
                 this.classList.toggle('open');
             }
         }
@@ -60,7 +67,7 @@ for (var i = 0; i < dropdowns.length; i++) {
 
 // Close dropdowns when screen becomes big enough to switch to open by hover
 function closeMenusOnResize() {
-    if (document.body.clientWidth >= 768) {
+    if (document.body.clientWidth >= 768 && collapse) {
         closeMenus();
         collapse.classList.add('collapse');
         collapse.classList.remove('in');
@@ -69,4 +76,6 @@ function closeMenusOnResize() {
 
 // Event listeners
 window.addEventListener('resize', closeMenusOnResize, false);
-toggle.addEventListener('click', toggleMenu, false);
+if (toggle) {
+    toggle.addEventListener('click', toggleMenu, false);
+}
